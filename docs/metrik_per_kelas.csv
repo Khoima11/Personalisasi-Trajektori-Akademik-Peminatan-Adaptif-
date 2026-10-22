@@ -1,0 +1,13 @@
+karir,precision,recall,f1,support
+AI Researcher,0.5,0.8,0.615,5
+Cloud Solutions Architect,0.9,1.0,0.947,9
+Data Analyst,0.0,0.0,0.0,5
+Data Scientist,0.5,0.8,0.615,5
+Database Administrator,1.0,1.0,1.0,7
+Graphics Programmer,1.0,1.0,1.0,2
+Information Security Analyst,0.889,1.0,0.941,8
+Machine Learning Engineer,1.0,1.0,1.0,5
+Mobile App Developer,1.0,1.0,1.0,8
+NLP Research Scientist,0.0,0.0,0.0,4
+Software Engineer,1.0,0.857,0.923,7
+Web Developer,1.0,1.0,1.0,7

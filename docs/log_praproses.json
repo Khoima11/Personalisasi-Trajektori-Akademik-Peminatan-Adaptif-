@@ -1,0 +1,40 @@
+{
+  "baris_awal": 180,
+  "karir_awal": 33,
+  "baris_setelah_filter_kelas": 152,
+  "karir_dipakai": [
+    "AI Researcher",
+    "Cloud Solutions Architect",
+    "Data Analyst",
+    "Data Scientist",
+    "Database Administrator",
+    "Graphics Programmer",
+    "Information Security Analyst",
+    "Machine Learning Engineer",
+    "Mobile App Developer",
+    "NLP Research Scientist",
+    "Software Engineer",
+    "Web Developer"
+  ],
+  "duplikat_dihapus": 80,
+  "baris_final": 72,
+  "distribusi_kelas": {
+    "Cloud Solutions Architect": 9,
+    "Information Security Analyst": 8,
+    "Mobile App Developer": 8,
+    "Software Engineer": 7,
+    "Web Developer": 7,
+    "Database Administrator": 7,
+    "Data Scientist": 5,
+    "Machine Learning Engineer": 5,
+    "Data Analyst": 5,
+    "AI Researcher": 5,
+    "NLP Research Scientist": 4,
+    "Graphics Programmer": 2
+  },
+  "model_final": {
+    "kedalaman": 2,
+    "jumlah_daun_aturan": 14,
+    "atribut_akar": "minat"
+  }
+}

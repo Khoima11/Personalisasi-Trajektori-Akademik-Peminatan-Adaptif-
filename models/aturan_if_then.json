@@ -1,0 +1,118 @@
+[
+  {
+    "if": [
+      "minat = Data Science",
+      "ipk <= 3.35"
+    ],
+    "then": "Data Scientist",
+    "support": 2,
+    "confidence": 1.0
+  },
+  {
+    "if": [
+      "minat = Data Science",
+      "ipk > 3.35"
+    ],
+    "then": "Data Analyst",
+    "support": 7,
+    "confidence": 0.571
+  },
+  {
+    "if": [
+      "minat = Software Development"
+    ],
+    "then": "Software Engineer",
+    "support": 6,
+    "confidence": 1.0
+  },
+  {
+    "if": [
+      "minat = Web Development"
+    ],
+    "then": "Web Developer",
+    "support": 7,
+    "confidence": 1.0
+  },
+  {
+    "if": [
+      "minat = Cybersecurity"
+    ],
+    "then": "Information Security Analyst",
+    "support": 8,
+    "confidence": 1.0
+  },
+  {
+    "if": [
+      "minat = Machine Learning"
+    ],
+    "then": "Machine Learning Engineer",
+    "support": 5,
+    "confidence": 1.0
+  },
+  {
+    "if": [
+      "minat = Database Management"
+    ],
+    "then": "Database Administrator",
+    "support": 7,
+    "confidence": 1.0
+  },
+  {
+    "if": [
+      "minat = Cloud Computing"
+    ],
+    "then": "Cloud Solutions Architect",
+    "support": 9,
+    "confidence": 1.0
+  },
+  {
+    "if": [
+      "minat = Mobile App Development"
+    ],
+    "then": "Mobile App Developer",
+    "support": 8,
+    "confidence": 1.0
+  },
+  {
+    "if": [
+      "minat = Computer Graphics"
+    ],
+    "then": "Graphics Programmer",
+    "support": 2,
+    "confidence": 1.0
+  },
+  {
+    "if": [
+      "minat = Artificial Intelligence",
+      "java_ord <= 0.50"
+    ],
+    "then": "NLP Research Scientist",
+    "support": 7,
+    "confidence": 0.571
+  },
+  {
+    "if": [
+      "minat = Artificial Intelligence",
+      "java_ord > 0.50"
+    ],
+    "then": "AI Researcher",
+    "support": 2,
+    "confidence": 1.0
+  },
+  {
+    "if": [
+      "minat = Software Engineering"
+    ],
+    "then": "Software Engineer",
+    "support": 1,
+    "confidence": 1.0
+  },
+  {
+    "if": [
+      "minat = Data Mining"
+    ],
+    "then": "Data Analyst",
+    "support": 1,
+    "confidence": 1.0
+  }
+]

@@ -1,0 +1,174 @@
+{
+  "numeric_attrs": [
+    "ipk",
+    "python_ord",
+    "sql_ord",
+    "java_ord"
+  ],
+  "categorical_attrs": [
+    "minat"
+  ],
+  "classes": [
+    "AI Researcher",
+    "Cloud Solutions Architect",
+    "Data Analyst",
+    "Data Scientist",
+    "Database Administrator",
+    "Graphics Programmer",
+    "Information Security Analyst",
+    "Machine Learning Engineer",
+    "Mobile App Developer",
+    "NLP Research Scientist",
+    "Software Engineer",
+    "Web Developer"
+  ],
+  "tree": {
+    "leaf": false,
+    "attr": "minat",
+    "type": "cat",
+    "gain": 3.2566,
+    "gain_ratio": 0.968,
+    "n": 72,
+    "majority": "Cloud Solutions Architect",
+    "children": {
+      "Data Science": {
+        "leaf": false,
+        "attr": "ipk",
+        "type": "num",
+        "gain": 0.2248,
+        "gain_ratio": 0.2941,
+        "n": 9,
+        "majority": "Data Scientist",
+        "children": {
+          "<=": {
+            "leaf": true,
+            "label": "Data Scientist",
+            "n": 2,
+            "dist": {
+              "Data Scientist": 2
+            }
+          },
+          ">": {
+            "leaf": true,
+            "label": "Data Analyst",
+            "n": 7,
+            "dist": {
+              "Data Scientist": 3,
+              "Data Analyst": 4
+            }
+          }
+        },
+        "thr": 3.3499999999999996
+      },
+      "Software Development": {
+        "leaf": true,
+        "label": "Software Engineer",
+        "n": 6,
+        "dist": {
+          "Software Engineer": 6
+        }
+      },
+      "Web Development": {
+        "leaf": true,
+        "label": "Web Developer",
+        "n": 7,
+        "dist": {
+          "Web Developer": 7
+        }
+      },
+      "Cybersecurity": {
+        "leaf": true,
+        "label": "Information Security Analyst",
+        "n": 8,
+        "dist": {
+          "Information Security Analyst": 8
+        }
+      },
+      "Machine Learning": {
+        "leaf": true,
+        "label": "Machine Learning Engineer",
+        "n": 5,
+        "dist": {
+          "Machine Learning Engineer": 5
+        }
+      },
+      "Database Management": {
+        "leaf": true,
+        "label": "Database Administrator",
+        "n": 7,
+        "dist": {
+          "Database Administrator": 7
+        }
+      },
+      "Cloud Computing": {
+        "leaf": true,
+        "label": "Cloud Solutions Architect",
+        "n": 9,
+        "dist": {
+          "Cloud Solutions Architect": 9
+        }
+      },
+      "Mobile App Development": {
+        "leaf": true,
+        "label": "Mobile App Developer",
+        "n": 8,
+        "dist": {
+          "Mobile App Developer": 8
+        }
+      },
+      "Computer Graphics": {
+        "leaf": true,
+        "label": "Graphics Programmer",
+        "n": 2,
+        "dist": {
+          "Graphics Programmer": 2
+        }
+      },
+      "Artificial Intelligence": {
+        "leaf": false,
+        "attr": "java_ord",
+        "type": "num",
+        "gain": 0.2248,
+        "gain_ratio": 0.2941,
+        "n": 9,
+        "majority": "AI Researcher",
+        "children": {
+          "<=": {
+            "leaf": true,
+            "label": "NLP Research Scientist",
+            "n": 7,
+            "dist": {
+              "NLP Research Scientist": 4,
+              "AI Researcher": 3
+            }
+          },
+          ">": {
+            "leaf": true,
+            "label": "AI Researcher",
+            "n": 2,
+            "dist": {
+              "AI Researcher": 2
+            }
+          }
+        },
+        "thr": 0.5
+      },
+      "Software Engineering": {
+        "leaf": true,
+        "label": "Software Engineer",
+        "n": 1,
+        "dist": {
+          "Software Engineer": 1
+        }
+      },
+      "Data Mining": {
+        "leaf": true,
+        "label": "Data Analyst",
+        "n": 1,
+        "dist": {
+          "Data Analyst": 1
+        }
+      }
+    }
+  }
+}

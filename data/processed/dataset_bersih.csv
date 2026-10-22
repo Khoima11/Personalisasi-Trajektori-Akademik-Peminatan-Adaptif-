@@ -1,0 +1,73 @@
+minat,ipk,python,sql,java,karir,python_ord,python_bin,sql_ord,sql_bin,java_ord,java_bin
+Data Science,3.2,Average,Strong,Weak,Data Scientist,1,1,2,1,0,0
+Software Development,3.8,Strong,Strong,Average,Software Engineer,2,1,2,1,1,1
+Web Development,3.7,Weak,Strong,Strong,Web Developer,0,0,2,1,2,1
+Cybersecurity,3.4,Average,Weak,Strong,Information Security Analyst,1,1,0,0,2,1
+Machine Learning,3.9,Strong,Average,Weak,Machine Learning Engineer,2,1,1,1,0,0
+Database Management,3.6,Average,Strong,Weak,Database Administrator,1,1,2,1,0,0
+Cloud Computing,3.7,Weak,Strong,Average,Cloud Solutions Architect,0,0,2,1,1,1
+Mobile App Development,3.3,Average,Weak,Strong,Mobile App Developer,1,1,0,0,2,1
+Computer Graphics,3.5,Weak,Average,Strong,Graphics Programmer,0,0,1,1,2,1
+Artificial Intelligence,3.8,Strong,Average,Weak,NLP Research Scientist,2,1,1,1,0,0
+Web Development,3.7,Strong,Strong,Average,Web Developer,2,1,2,1,1,1
+Software Engineering,3.8,Strong,Strong,Average,Software Engineer,2,1,2,1,1,1
+Cybersecurity,3.6,Average,Weak,Strong,Information Security Analyst,1,1,0,0,2,1
+Cloud Computing,3.6,Strong,Strong,Average,Cloud Solutions Architect,2,1,2,1,1,1
+Software Development,3.3,Average,Weak,Strong,Software Engineer,1,1,0,0,2,1
+Mobile App Development,3.5,Average,Weak,Strong,Mobile App Developer,1,1,0,0,2,1
+Computer Graphics,3.8,Weak,Average,Strong,Graphics Programmer,0,0,1,1,2,1
+Artificial Intelligence,3.6,Strong,Average,Weak,NLP Research Scientist,2,1,1,1,0,0
+Data Science,3.3,Average,Strong,Weak,Data Scientist,1,1,2,1,0,0
+Cybersecurity,3.7,Weak,Strong,Average,Information Security Analyst,0,0,2,1,1,1
+Database Management,3.5,Average,Weak,Strong,Database Administrator,1,1,0,0,2,1
+Cloud Computing,3.8,Strong,Strong,Average,Cloud Solutions Architect,2,1,2,1,1,1
+Software Development,3.6,Average,Weak,Strong,Software Engineer,1,1,0,0,2,1
+Web Development,3.3,Weak,Strong,Strong,Web Developer,0,0,2,1,2,1
+Mobile App Development,3.7,Average,Weak,Strong,Mobile App Developer,1,1,0,0,2,1
+Cloud Computing,3.9,Strong,Strong,Average,Cloud Solutions Architect,2,1,2,1,1,1
+Cybersecurity,3.8,Weak,Strong,Average,Information Security Analyst,0,0,2,1,1,1
+Database Management,3.7,Average,Weak,Strong,Database Administrator,1,1,0,0,2,1
+Mobile App Development,3.6,Strong,Average,Strong,Mobile App Developer,2,1,1,1,2,1
+Web Development,3.5,Weak,Strong,Strong,Web Developer,0,0,2,1,2,1
+Software Development,3.9,Average,Weak,Strong,Software Engineer,1,1,0,0,2,1
+Artificial Intelligence,3.7,Strong,Average,Weak,NLP Research Scientist,2,1,1,1,0,0
+Data Science,3.6,Average,Strong,Weak,Data Scientist,1,1,2,1,0,0
+Machine Learning,3.6,Strong,Average,Weak,Machine Learning Engineer,2,1,1,1,0,0
+Database Management,3.8,Average,Strong,Weak,Database Administrator,1,1,2,1,0,0
+Web Development,3.9,Strong,Average,Weak,Web Developer,2,1,1,1,0,0
+Data Science,3.7,Strong,Average,Weak,Data Analyst,2,1,1,1,0,0
+Data Mining,3.6,Strong,Average,Weak,Data Analyst,2,1,1,1,0,0
+Artificial Intelligence,3.6,Strong,Average,Weak,AI Researcher,2,1,1,1,0,0
+Data Science,3.4,Average,Strong,Weak,Data Analyst,1,1,2,1,0,0
+Software Development,3.9,Strong,Strong,Average,Software Engineer,2,1,2,1,1,1
+Cybersecurity,3.5,Average,Weak,Strong,Information Security Analyst,1,1,0,0,2,1
+Machine Learning,3.8,Strong,Weak,Weak,Machine Learning Engineer,2,1,0,0,0,0
+Database Management,3.7,Weak,Strong,Average,Database Administrator,0,0,2,1,1,1
+Cloud Computing,3.3,Strong,Weak,Weak,Cloud Solutions Architect,2,1,0,0,0,0
+Mobile App Development,3.5,Average,Strong,Weak,Mobile App Developer,1,1,2,1,0,0
+Artificial Intelligence,3.8,Strong,Weak,Weak,NLP Research Scientist,2,1,0,0,0,0
+Cybersecurity,3.7,Average,Weak,Strong,Information Security Analyst,1,1,0,0,2,1
+Database Management,3.3,Average,Strong,Weak,Database Administrator,1,1,2,1,0,0
+Cloud Computing,3.5,Weak,Strong,Average,Cloud Solutions Architect,0,0,2,1,1,1
+Artificial Intelligence,3.8,Strong,Average,Weak,AI Researcher,2,1,1,1,0,0
+Data Science,3.7,Average,Strong,Weak,Data Scientist,1,1,2,1,0,0
+Software Development,3.6,Strong,Weak,Strong,Software Engineer,2,1,0,0,2,1
+Web Development,3.4,Weak,Strong,Strong,Web Developer,0,0,2,1,2,1
+Cybersecurity,3.9,Strong,Average,Weak,Information Security Analyst,2,1,1,1,0,0
+Machine Learning,3.7,Strong,Average,Weak,Machine Learning Engineer,2,1,1,1,0,0
+Database Management,3.5,Weak,Strong,Average,Database Administrator,0,0,2,1,1,1
+Cloud Computing,3.8,Strong,Strong,Weak,Cloud Solutions Architect,2,1,2,1,0,0
+Mobile App Development,3.7,Weak,Strong,Average,Mobile App Developer,0,0,2,1,1,1
+Artificial Intelligence,3.3,Strong,Weak,Average,AI Researcher,2,1,0,0,1,1
+Data Science,3.5,Average,Weak,Strong,Data Analyst,1,1,0,0,2,1
+Web Development,3.6,Weak,Strong,Average,Web Developer,0,0,2,1,1,1
+Artificial Intelligence,3.7,Strong,Average,Weak,AI Researcher,2,1,1,1,0,0
+Data Science,3.6,Strong,Average,Weak,Data Scientist,2,1,1,1,0,0
+Cloud Computing,3.6,Strong,Weak,Weak,Cloud Solutions Architect,2,1,0,0,0,0
+Mobile App Development,3.5,Weak,Strong,Average,Mobile App Developer,0,0,2,1,1,1
+Cybersecurity,3.6,Strong,Average,Weak,Information Security Analyst,2,1,1,1,0,0
+Machine Learning,3.4,Strong,Average,Weak,Machine Learning Engineer,2,1,1,1,0,0
+Cloud Computing,3.7,Strong,Strong,Weak,Cloud Solutions Architect,2,1,2,1,0,0
+Mobile App Development,3.8,Weak,Strong,Average,Mobile App Developer,0,0,2,1,1,1
+Artificial Intelligence,3.7,Strong,Weak,Average,AI Researcher,2,1,0,0,1,1
+Data Science,3.6,Average,Strong,Weak,Data Analyst,1,1,2,1,0,0
