@@ -88,7 +88,8 @@ class Navika:
         karir, jalur = self.model.predict_one(baris, return_path=True)
         daun = self.model.predict_leaf(baris)
         transkrip = self.susun_transkrip(semester_sekarang, nilai_wajib, nilai_pilihan)
-        hasil = self.engine.rekomendasi(karir, transkrip, semester_sekarang)
+        kemampuan = {"python": baris["python_ord"], "sql": baris["sql_ord"], "java": baris["java_ord"]}
+        hasil = self.engine.rekomendasi(karir, transkrip, semester_sekarang, kemampuan)
         hasil["aturan"] = [self.terjemah_kondisi(c) for c in jalur]
         hasil["aturan_kv"] = [self.kondisi_kv(c) for c in jalur]
         hasil["daun"] = {"n": daun["n"], "dist": dict(sorted(daun["dist"].items(), key=lambda x: -x[1]))}

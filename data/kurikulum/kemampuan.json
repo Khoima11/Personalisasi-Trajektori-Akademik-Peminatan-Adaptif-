@@ -1,0 +1,41 @@
+{
+  "_keterangan": "Asumsi peneliti: kemampuan pemrograman yang relevan untuk tiap karir dan mata kuliah pilihan. Dataset hanya memuat Python, SQL, dan Java, sehingga bahasa lain (misalnya JavaScript atau C++) tidak terwakili.",
+  "aturan_bobot": "Mata kuliah pilihan mendapat tambahan skor 1,5 jika minimal satu kemampuan yang relevan bernilai Baik. Selisih skor antar peringkat prioritas adalah 1, sehingga tambahan ini dapat menaikkan mata kuliah satu peringkat, tetapi tidak dapat melampaui dua peringkat.",
+  "bonus": 1.5,
+  "nama": {"python": "Python", "sql": "SQL", "java": "Java"},
+  "karir": {
+    "Data Analyst": ["sql", "python"],
+    "Data Scientist": ["python", "sql"],
+    "Machine Learning Engineer": ["python"],
+    "AI Researcher": ["python"],
+    "NLP Research Scientist": ["python"],
+    "Database Administrator": ["sql"],
+    "Web Developer": ["sql"],
+    "Mobile App Developer": ["java"],
+    "Software Engineer": ["java", "python"],
+    "Cloud Solutions Architect": ["python"],
+    "Information Security Analyst": ["python"],
+    "Graphics Programmer": ["java"]
+  },
+  "mata_kuliah": {
+    "DTA5594": ["sql"],
+    "DTA6604": ["python"],
+    "DTA6614": ["sql"],
+    "DTA6624": ["python"],
+    "DTA7644": ["python"],
+    "DTA7654": ["python", "sql"],
+    "PSI6524": ["java"],
+    "PSI6534": ["java"],
+    "PSI6544": ["python"],
+    "PSI7564": ["sql"],
+    "PSI7574": ["sql"],
+    "PSI7584": ["java"],
+    "SIA6464": ["sql"],
+    "SIA7504": ["sql"]
+  },
+  "saran": {
+    "python": "Perkuat Python dengan mengulang materi Dasar-dasar Pemrograman serta latihan atau kursus daring secara mandiri.",
+    "sql": "Perkuat SQL melalui materi Basis Data dan Basis Data Lanjut serta latihan menulis kueri secara mandiri.",
+    "java": "Perkuat Java melalui materi Pemrograman Berorientasi Obyek dan latihan membuat aplikasi sederhana."
+  }
+}

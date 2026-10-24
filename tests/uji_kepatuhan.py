@@ -2,8 +2,8 @@
 Pengujian kepatuhan prasyarat engine trajektori.
 Jalankan dari root repo:  python tests/uji_kepatuhan.py
 
-Bagian A: skenario uji terencana (black-box) dengan hasil yang diharapkan.
-Bagian B: uji acak 1.000 profil mahasiswa; setiap rekomendasi diverifikasi
+Bagian A: skenario uji terencana (black-box) dengan hasil yang diharapkan, termasuk penyesuaian kemampuan.
+Bagian B: uji acak 1.000 profil mahasiswa (nilai dan kemampuan acak); setiap rekomendasi diverifikasi
           ulang secara independen terhadap rantai prasyarat.
 """
 import csv
@@ -137,6 +137,34 @@ def skenario():
               "Sistem Komputasi Awan menjadi prioritas semester 6",
               "PSI6544" in p, h, tr))
 
+    tr = transkrip_dasar()
+    h = eng.rekomendasi("Data Analyst", tr, 5, {"python": 2, "sql": 1, "java": 1})
+    p = pilihan(h)
+    alasan = [m.get("alasan", "") for t in h["trajektori"] for m in t["mata_kuliah"] if m["kode"] == "DTA7654"]
+    S.append(("S15", "Karir Data Analyst, kemampuan Python Baik",
+              "Pengelolaan Big Data (relevan Python) naik satu peringkat menggantikan Sistem Pengambil Keputusan, disertai alasan",
+              "DTA7654" in p and "DTA7634" not in p and alasan and "Python" in alasan[0], h, tr))
+
+    tr = transkrip_dasar()
+    h = eng.rekomendasi("Data Analyst", tr, 5, {"python": 1, "sql": 1, "java": 1})
+    p = pilihan(h)
+    S.append(("S16", "Karir Data Analyst, semua kemampuan Cukup",
+              "Tidak ada penyesuaian; semester 7 tetap Analisis dan Visualisasi Data serta Sistem Pengambil Keputusan",
+              {"DTA7644", "DTA7634"} <= set(p), h, tr))
+
+    tr = transkrip_dasar()
+    h = eng.rekomendasi("Information Security Analyst", tr, 5, {"python": 1, "sql": 2, "java": 1})
+    sem6 = [m["kode"] for t in h["trajektori"] if t["semester"] == 6 for m in t["mata_kuliah"] if m["jenis"] == "pilihan"]
+    S.append(("S17", "Karir Information Security Analyst, kemampuan SQL Baik",
+              "ERP (relevan SQL) naik dari peringkat 3 ke 2, tetapi Manajemen Risiko & Keamanan IT tetap prioritas pertama",
+              sem6[:1] == ["SIA6454"] and "SIA6464" in sem6, h, tr))
+
+    tr = transkrip_dasar()
+    h = eng.rekomendasi("Data Analyst", tr, 5, {"python": 0, "sql": 1, "java": 1})
+    S.append(("S18", "Karir Data Analyst, kemampuan Python Kurang",
+              "Kesiapan teknis berstatus Perlu penguatan dan muncul saran pengembangan Python",
+              h["kesiapan_teknis"]["status"] == "Perlu penguatan" and any("Python" in x for x in h["saran_pengembangan"]), h, tr))
+
     return S
 
 
@@ -175,7 +203,8 @@ def bagian_b(n=1000, seed=7):
         for s in range(5, sem):
             for k in rng.sample(net.pilihan(pem, s), SLOT_PILIHAN[s]):
                 tr[k] = rng.choice(distribusi[:-2])
-        h = eng.rekomendasi(rng.choice(karir), tr, sem)
+        kem = {b: rng.choice([0, 1, 2]) for b in ("python", "sql", "java")}
+        h = eng.rekomendasi(rng.choice(karir), tr, sem, kem)
         p = pilihan(h)
         total_mk += len(p)
         total_pel += len(verifikasi(net, h, tr))

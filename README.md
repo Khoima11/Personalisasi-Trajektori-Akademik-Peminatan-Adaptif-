@@ -73,8 +73,8 @@ Model final memiliki kedalaman 2 dan 14 aturan IF-THEN (lihat `models/aturan_if_
 - Peta 12 karir ke peminatan, CPL (rujukan IS2020), dan prioritas mata kuliah pilihan.
 - Engine: enumerasi kombinasi mata kuliah pilihan semester 5-7 dalam satu peminatan,
   validasi prasyarat berantai, pemilihan berdasarkan prioritas karir, dan penjelasan alasan.
-- Pengujian: 14/14 skenario terencana sesuai harapan; uji acak 1.000 profil mahasiswa
-  menghasilkan 0 pelanggaran prasyarat (kepatuhan 100%).
+- Pengujian: 18/18 skenario terencana sesuai harapan (termasuk penyesuaian kemampuan); uji acak
+  1.000 profil mahasiswa dengan nilai dan kemampuan acak menghasilkan 0 pelanggaran prasyarat (kepatuhan 100%).
 - Daftar asumsi untuk divalidasi: `docs/asumsi_tahap2.md`.
 
 ## Ringkasan tahap 3
@@ -82,7 +82,9 @@ Model final memiliki kedalaman 2 dan 14 aturan IF-THEN (lihat `models/aturan_if_
 Aplikasi NAVIKA (Streamlit) dengan alur: input profil (minat, IPK, kemampuan Python/SQL/Java) dan nilai
 mata kuliah ringkas, prediksi karir C4.5 beserta aturan keputusan, peta jalur studi semester 5-7 dengan status
 prasyarat, peringatan, rincian prasyarat, unduhan rencana studi (CSV), penelusuran rantai prasyarat, dan
-pembaruan rekomendasi otomatis saat data diubah (simulasi adaptif). Mata kuliah wajib yang tidak ditanyakan
+pembaruan rekomendasi otomatis saat data diubah (simulasi adaptif). Kemampuan pemrograman yang relevan
+dapat menaikkan prioritas mata kuliah pilihan satu peringkat, serta dipakai untuk kesiapan teknis dan saran
+pengembangan (pemetaan di `data/kurikulum/kemampuan.json`, asumsi peneliti). Mata kuliah wajib yang tidak ditanyakan
 diasumsikan lulus.
 
 ## Keterbatasan

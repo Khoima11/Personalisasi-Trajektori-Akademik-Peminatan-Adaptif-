@@ -71,3 +71,41 @@ Semester 5 hanya memiliki satu MK pilihan per peminatan, sehingga otomatis mengi
 - MK wajib terjadwal yang prasyaratnya tidak terpenuhi tidak dapat menjadi pemenuh prasyarat MK lain (validasi berantai).
 - Jika mahasiswa sudah mengambil MK pilihan, peminatan terkunci ke peminatan tersebut.
 - Pemilihan MK pilihan: enumerasi seluruh kombinasi dalam peminatan, saring dengan validasi prasyarat, pilih skor prioritas karir tertinggi (bobot 3/2/1).
+
+## E. Penyesuaian berdasarkan kemampuan pemrograman (asumsi peneliti)
+
+Aturan: mata kuliah pilihan mendapat tambahan skor 1,5 jika minimal satu kemampuan relevan bernilai Baik. Karena selisih skor antar peringkat prioritas adalah 1, tambahan ini dapat menaikkan mata kuliah satu peringkat, tetapi tidak melampaui dua peringkat. Penyesuaian hanya mengubah urutan di antara mata kuliah yang sudah lolos validasi prasyarat.
+
+| Karir | Kemampuan relevan (untuk kesiapan teknis dan saran) |
+|---|---|
+| Data Analyst | SQL, Python |
+| Data Scientist | Python, SQL |
+| Machine Learning Engineer | Python |
+| AI Researcher | Python |
+| NLP Research Scientist | Python |
+| Database Administrator | SQL |
+| Web Developer | SQL |
+| Mobile App Developer | Java |
+| Software Engineer | Java, Python |
+| Cloud Solutions Architect | Python |
+| Information Security Analyst | Python |
+| Graphics Programmer | Java |
+
+| Mata kuliah pilihan | Kemampuan relevan |
+|---|---|
+| Pemodelan Data | SQL |
+| Artificial Intelligence & Sistem Data | Python |
+| Bisnis Intelijen | SQL |
+| Machine Learning | Python |
+| Analisis dan Visualisasi Data | Python |
+| Pengelolaan Big Data | Python, SQL |
+| Pemrograman Mobile | Java |
+| Testing dan Implementasi | Java |
+| Sistem Komputasi Awan | Python |
+| Sistem Informasi Geografis | SQL |
+| Teknologi Keuangan Syariah | SQL |
+| Enterprise Application Integration | Java |
+| Enterprise Resource Planning (ERP) | SQL |
+| Supply Chain Management (SCM) | SQL |
+
+Keterbatasan: dataset hanya memuat Python, SQL, dan Java, sehingga bahasa lain seperti JavaScript (Web Developer) atau C++ (Graphics Programmer) tidak terwakili.

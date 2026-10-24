@@ -97,7 +97,7 @@ div[data-baseweb="select"] > div, div[data-baseweb="input"], [data-testid="stNum
 .nb-kode .c { color:#CFC4FF; }
 
 /* ---------- strip profil karir ---------- */
-.nb-strip { display:grid; grid-template-columns:150px repeat(3, 1fr); border:3px solid var(--hitam); background:var(--putih);
+.nb-strip { display:grid; grid-template-columns:150px repeat(4, 1fr); border:3px solid var(--hitam); background:var(--putih);
   box-shadow:var(--bayang); margin-bottom:1.6rem; }
 .nb-strip-label { background:var(--ungu); color:var(--putih); font-weight:700; font-size:1.1rem; padding:1rem; display:flex; align-items:center;
   border-right:3px solid var(--hitam); }
@@ -280,7 +280,9 @@ else:
         f'<p class="nb-sub">{e(hasil["karir_id"])}</p>'
         f'<span class="nb-badge" style="background:{warna};color:{TEKS_PEMINATAN[hasil["peminatan"]]}">Peminatan {hasil["peminatan"]}</span> '
         f'<span class="nb-badge" style="background:#fff">{e(LABEL_DUKUNGAN[hasil["dukungan_kurikulum"]])}</span>'
-        '<p class="nb-kecil" style="margin-top:1rem">Kartu di samping menunjukkan aturan keputusan C4.5 yang menghasilkan rekomendasi ini.</p>'
+        '<p class="nb-p" style="margin-top:1rem;font-size:0.95rem"><b>Cara NAVIKA menentukan rekomendasi:</b> karir terutama ditentukan '
+        'oleh minat Anda. Nilai mata kuliah menentukan mata kuliah yang aman diambil, dan kemampuan pemrograman ikut menentukan '
+        'urutan prioritasnya. Kartu di samping menunjukkan aturan keputusan C4.5 untuk karir Anda.</p>'
         f'</div><div class="nb-hero-kanan">{kartu_kode(baris)}</div></div>', unsafe_allow_html=True)
 
 if galat:
@@ -305,13 +307,23 @@ with tab_rek:
         warna = WARNA_PEMINATAN[hasil["peminatan"]]
         idx = hasil["kesiapan_akademik"]["indeks"]
         kesiapan = f"{idx:.2f} dari 4,00".replace(".", ",", 1) if idx is not None else "Belum ada nilai"
+        tek = hasil["kesiapan_teknis"]
+        teknis_status = tek["status"] if tek else "-"
+        teknis_rinci = ", ".join(f"{k}: {v}" for k, v in tek["rincian"].items()) if tek else ""
         st.markdown(
             '<div class="nb-strip"><div class="nb-strip-label">Profil karir</div>'
             f'<div class="nb-strip-sel"><p class="t">Peminatan</p><p class="v">{e(PEMINATAN[hasil["peminatan"]])}</p></div>'
             f'<div class="nb-strip-sel"><p class="t">Kompetensi yang dibangun</p><p class="v">{e("; ".join(hasil["kompetensi"]))}</p></div>'
             f'<div class="nb-strip-sel"><p class="t">Kesiapan akademik</p><p class="v">{kesiapan}</p>'
-            f'<p class="nb-kecil">CPL terkait: {e(", ".join(hasil["cpl"]))}</p></div></div>',
+            f'<p class="nb-kecil">CPL terkait: {e(", ".join(hasil["cpl"]))}</p></div>'
+            f'<div class="nb-strip-sel"><p class="t">Kesiapan teknis</p><p class="v">{e(teknis_status)}</p>'
+            f'<p class="nb-kecil">{e(teknis_rinci)}</p></div></div>',
             unsafe_allow_html=True)
+
+        if hasil["saran_pengembangan"]:
+            butir = "".join(f"<li>{e(x)}</li>" for x in hasil["saran_pengembangan"])
+            st.markdown('<div class="nb-catatan" style="border-left-color:var(--lime)"><b>Saran pengembangan kemampuan</b>'
+                        f'<ul style="margin:0.4rem 0 0 1.1rem;padding:0">{butir}</ul></div>', unsafe_allow_html=True)
 
         if hasil["catatan_karir"]:
             st.markdown(f'<div class="nb-catatan"><b>Catatan untuk karir ini</b><p class="nb-p">{e(hasil["catatan_karir"])}</p></div>',
@@ -398,11 +410,14 @@ with tab_tentang:
         'dan kemampuan pemrograman. Setiap prediksi disertai aturan keputusan yang dapat dibaca.</p>'
         '<p class="nb-p"><b>2. Penyusunan jalur studi.</b> Engine trajektori memodelkan kurikulum sebagai jaringan prasyarat, '
         'memilih kombinasi mata kuliah pilihan dalam satu peminatan yang paling relevan dengan karir, dan hanya '
-        'merekomendasikan mata kuliah yang rantai prasyaratnya terpenuhi.</p></div>'
+        'merekomendasikan mata kuliah yang rantai prasyaratnya terpenuhi.</p>'
+        '<p class="nb-p"><b>3. Penyesuaian kemampuan.</b> Jika kemampuan pemrograman yang relevan dengan suatu mata kuliah '
+        'bernilai Baik, mata kuliah itu dapat naik satu peringkat prioritas. Kemampuan juga dipakai untuk menilai kesiapan teknis '
+        'dan memberi saran pengembangan. Pemetaan kemampuan ke karir dan mata kuliah merupakan asumsi peneliti.</p></div>'
         '<div class="nb-h">Kinerja dan pengujian</div><div class="nb-panel">'
         '<p class="nb-p">Model C4.5 mencapai akurasi 84,0% dan F1-macro 73,8% (stratified 5-fold cross validation, '
         'diulang 10 kali) dengan 14 aturan keputusan untuk 12 peran karir.</p>'
-        '<p class="nb-p">Engine trajektori lolos 14 dari 14 skenario uji dan tidak menghasilkan pelanggaran prasyarat '
+        '<p class="nb-p">Engine trajektori lolos 18 dari 18 skenario uji dan tidak menghasilkan pelanggaran prasyarat '
         'pada uji 1.000 profil acak.</p></div>'
         '<div class="nb-h">Keterbatasan</div><div class="nb-panel">'
         '<p class="nb-p">Model dilatih dengan data sekunder (Kaggle) berukuran kecil dan berlatar Computer Science, '

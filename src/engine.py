@@ -98,10 +98,13 @@ class CurriculumNetwork:
 # 2. Engine trajektori
 # ======================================================================
 class TrajectoryEngine:
-    def __init__(self, net=None, path_peta=os.path.join(DIR_KUR, "peta_karir.json")):
+    def __init__(self, net=None, path_peta=os.path.join(DIR_KUR, "peta_karir.json"),
+                 path_kemampuan=os.path.join(DIR_KUR, "kemampuan.json")):
         self.net = net or CurriculumNetwork()
         with open(path_peta, encoding="utf-8") as f:
             self.peta = json.load(f)["karir"]
+        with open(path_kemampuan, encoding="utf-8") as f:
+            self.kemampuan = json.load(f)
 
     # ---- status prasyarat satu mata kuliah ----
     def _cek(self, kode, semester, transkrip, rencana_sem):
@@ -139,7 +142,8 @@ class TrajectoryEngine:
         return pem
 
     # ---- rekomendasi utama ----
-    def rekomendasi(self, karir, transkrip, semester_sekarang=5):
+    def rekomendasi(self, karir, transkrip, semester_sekarang=5, kemampuan=None):
+        """kemampuan: {'python': 0-2, 'sql': 0-2, 'java': 0-2} (0 Kurang, 1 Cukup, 2 Baik); opsional."""
         if karir not in self.peta:
             raise ValueError(f"Karir tidak dikenal: {karir}")
         if semester_sekarang not in (5, 6, 7):
@@ -203,9 +207,19 @@ class TrajectoryEngine:
                 kombinasi += [list(c) for c in itertools.combinations(kandidat, kecil)]
             opsi_per_sem.append([(s, c) for c in kombinasi])
 
-        def skor_mk(k, s):
+        kemampuan = kemampuan or {}
+        bonus = self.kemampuan["bonus"]
+
+        def cocok_kemampuan(k):
+            """Kemampuan berlevel Baik yang relevan dengan mata kuliah k."""
+            return [b for b in self.kemampuan["mata_kuliah"].get(k, []) if kemampuan.get(b) == 2]
+
+        def skor_dasar(k, s):
             daftar = prioritas.get(str(s), [])
             return BOBOT_PRIORITAS[daftar.index(k)] if k in daftar else 1 if s == 5 else 0
+
+        def skor_mk(k, s):
+            return skor_dasar(k, s) + (bonus if cocok_kemampuan(k) else 0)
 
         terbaik = None
         for plan in itertools.product(*opsi_per_sem):
@@ -229,10 +243,8 @@ class TrajectoryEngine:
         trajektori = []
         for s in semesters:
             daftar = []
-            urutan = prioritas.get(str(s), [])
             for k in sorted([k for k, ss in rencana_sem.items() if ss == s],
-                            key=lambda x: (self.net.mk[x]["jenis"] != "pilihan",
-                                           urutan.index(x) if x in urutan else 99, x)):
+                            key=lambda x: (self.net.mk[x]["jenis"] != "pilihan", -skor_mk(x, s), x)):
                 m = self.net.mk[k]
                 status, detail = self._cek(k, s, transkrip, rencana_valid)
                 item = {"kode": k, "nama": m["nama"], "sks": m["sks"], "jenis": m["jenis"],
@@ -241,6 +253,11 @@ class TrajectoryEngine:
                     daftar_p = prioritas.get(str(s), [])
                     item["alasan"] = (f"Prioritas ke-{daftar_p.index(k) + 1} untuk karir {karir}"
                                       if k in daftar_p else f"Mata kuliah pilihan peminatan {peminatan}")
+                    cocok = cocok_kemampuan(k)
+                    if cocok and s != 5:
+                        nama_b = " dan ".join(self.kemampuan["nama"][b] for b in cocok)
+                        item["alasan"] += f"; diprioritaskan karena kemampuan {nama_b} Anda Baik"
+                    item["skor"] = skor_mk(k, s)
                 if status == "TIDAK_LAYAK":
                     peringatan.append(f"{m['nama']} (wajib, semester {s}) belum memenuhi prasyarat: "
                                       + "; ".join(d["keterangan"] for d in detail if d["status"] == "belum_terpenuhi"))
@@ -269,7 +286,22 @@ class TrajectoryEngine:
         kesiapan = (round(sum(SKALA_NILAI[v] for v in nilai_pendukung.values()) / len(nilai_pendukung), 2)
                     if nilai_pendukung else None)
 
+        # 7) Kesiapan teknis dan saran pengembangan dari kemampuan pemrograman
+        label_lv = {0: "Kurang", 1: "Cukup", 2: "Baik"}
+        relevan = self.kemampuan["karir"].get(karir, [])
+        teknis, saran = None, []
+        if kemampuan and relevan:
+            rincian = {self.kemampuan["nama"][b]: label_lv[kemampuan.get(b, 1)] for b in relevan}
+            levels = [kemampuan.get(b, 1) for b in relevan]
+            status = "Siap" if all(v == 2 for v in levels) else "Perlu penguatan" if any(v == 0 for v in levels) else "Cukup siap"
+            teknis = {"status": status, "rincian": rincian}
+            for b in relevan:
+                if kemampuan.get(b, 1) == 0:
+                    saran.append(f"Kemampuan {self.kemampuan['nama'][b]} Anda masih Kurang untuk karir {karir}. "
+                                 + self.kemampuan["saran"][b])
+
         return {
+            "kesiapan_teknis": teknis, "saran_pengembangan": saran,
             "karir": karir, "karir_id": info["nama_id"], "peminatan": peminatan,
             "peminatan_ideal": info["peminatan"], "dukungan_kurikulum": info["dukungan"],
             "catatan_karir": info["catatan"], "cpl": info["cpl"], "kompetensi": info["kompetensi"],
