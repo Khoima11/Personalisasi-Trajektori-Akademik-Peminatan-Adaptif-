@@ -90,6 +90,7 @@ class Navika:
         transkrip = self.susun_transkrip(semester_sekarang, nilai_wajib, nilai_pilihan)
         hasil = self.engine.rekomendasi(karir, transkrip, semester_sekarang)
         hasil["aturan"] = [self.terjemah_kondisi(c) for c in jalur]
+        hasil["aturan_kv"] = [self.kondisi_kv(c) for c in jalur]
         hasil["daun"] = {"n": daun["n"], "dist": dict(sorted(daun["dist"].items(), key=lambda x: -x[1]))}
         hasil["transkrip"] = transkrip
         return hasil
@@ -115,17 +116,30 @@ class Navika:
             lv = [KEMAMPUAN[i] for i in range(3) if i > t]
         return f"Kemampuan {nama}: {' atau '.join(lv)}"
 
+    @staticmethod
+    def kondisi_kv(c):
+        """Versi ringkas kondisi untuk kartu kode: (kunci, nilai)."""
+        teks = Navika.terjemah_kondisi(c)
+        if teks.startswith("Minat: "):
+            return "minat", teks[7:]
+        if teks.startswith("IPK "):
+            return "ipk", teks[4:]
+        if teks.startswith("Kemampuan "):
+            k, v = teks[10:].split(": ", 1)
+            return k.lower(), v
+        return "kondisi", teks
+
     def rantai_dot(self, kode):
         """Graf rantai prasyarat suatu MK dalam format DOT (untuk st.graphviz_chart)."""
         simpul = self.net.rantai(kode) | {kode}
-        warna = {"wajib": "#E3EAF0", "SIA": "#F6D58E", "PSI": "#A8E0BC", "DTA": "#A9CDF0"}
+        warna = {"wajib": "#FFFFFF", "SIA": "#FF9DB8", "PSI": "#D4F57A", "DTA": "#BBAAFF"}
         baris = ['digraph G {', 'rankdir=LR; bgcolor="transparent";',
-                 'node [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=11, color="#5B7083"];',
-                 'edge [color="#5B7083"];']
+                 'node [shape=box, style="filled", fontname="Helvetica", fontsize=11, color="#111111", penwidth=1.6];',
+                 'edge [color="#111111", penwidth=1.3];']
         for n in sorted(simpul, key=lambda x: self.net.mk[x]["semester"]):
             m = self.net.mk[n]
             w = warna["wajib"] if m["jenis"] == "wajib" else warna[m["peminatan"]]
-            tebal = ', penwidth=2.2' if n == kode else ''
+            tebal = ', penwidth=3.2' if n == kode else ''
             baris.append(f'"{n}" [label="{m["nama"]}\\nSemester {m["semester"]}", fillcolor="{w}"{tebal}];')
         for u, v, d in self.net.graf.edges(data=True):
             if u in simpul and v in simpul:
