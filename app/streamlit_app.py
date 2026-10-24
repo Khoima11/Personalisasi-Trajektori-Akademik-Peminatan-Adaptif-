@@ -165,12 +165,31 @@ def lebar_penuh(fungsi, *args, **kwargs):
         return fungsi(*args, use_container_width=True, **kwargs)
 
 
+ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+BERKAS_SISTEM = [os.path.join(ROOT, "src", "c45.py"), os.path.join(ROOT, "src", "engine.py"),
+                 os.path.join(ROOT, "app", "logic.py"), os.path.join(ROOT, "models", "c45_karir.json")]
+BERKAS_SISTEM += [os.path.join(ROOT, "data", "kurikulum", f) for f in sorted(os.listdir(os.path.join(ROOT, "data", "kurikulum")))]
+
+
+def versi_sistem():
+    """Penanda versi dari waktu ubah berkas inti; berubah setiap kali kode atau data diperbarui."""
+    return tuple(round(os.path.getmtime(p), 3) for p in BERKAS_SISTEM if os.path.exists(p))
+
+
 @st.cache_resource
-def muat():
-    return Navika()
+def muat(versi):
+    """Memuat ulang modul inti agar pembaruan engine atau data langsung terpakai tanpa reboot."""
+    import importlib
+
+    import c45
+    import engine
+    import logic
+    for modul in (c45, engine, logic):
+        importlib.reload(modul)
+    return logic.Navika()
 
 
-nv = muat()
+nv = muat(versi_sistem())
 e = html.escape
 
 # ======================================================================
@@ -307,7 +326,7 @@ with tab_rek:
         warna = WARNA_PEMINATAN[hasil["peminatan"]]
         idx = hasil["kesiapan_akademik"]["indeks"]
         kesiapan = f"{idx:.2f} dari 4,00".replace(".", ",", 1) if idx is not None else "Belum ada nilai"
-        tek = hasil["kesiapan_teknis"]
+        tek = hasil.get("kesiapan_teknis")
         teknis_status = tek["status"] if tek else "-"
         teknis_rinci = ", ".join(f"{k}: {v}" for k, v in tek["rincian"].items()) if tek else ""
         st.markdown(
@@ -320,7 +339,7 @@ with tab_rek:
             f'<p class="nb-kecil">{e(teknis_rinci)}</p></div></div>',
             unsafe_allow_html=True)
 
-        if hasil["saran_pengembangan"]:
+        if hasil.get("saran_pengembangan"):
             butir = "".join(f"<li>{e(x)}</li>" for x in hasil["saran_pengembangan"])
             st.markdown('<div class="nb-catatan" style="border-left-color:var(--lime)"><b>Saran pengembangan kemampuan</b>'
                         f'<ul style="margin:0.4rem 0 0 1.1rem;padding:0">{butir}</ul></div>', unsafe_allow_html=True)
