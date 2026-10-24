@@ -4,17 +4,21 @@ Intelligent Decision Support System (IDSS) yang mengintegrasikan klasifikasi per
 **Algoritma C4.5** dengan **Curriculum Prerequisite Network** untuk menghasilkan rekomendasi mata kuliah
 pilihan semester 5, 6, dan 7 yang tervalidasi rantai prasyaratnya.
 
-> Status: **Tahap 1 selesai** (praproses data dan pemodelan C4.5). Tahap berikutnya: kurikulum acuan,
-> engine trajektori, aplikasi, dan evaluasi.
+> Status: **Tahap 2 selesai** (kurikulum acuan, Curriculum Prerequisite Network, dan engine trajektori).
+> Tahap berikutnya: aplikasi DSS dan evaluasi pengguna.
 
 ## Struktur repositori
 
 ```
 data/raw/            dataset sumber (Kaggle: Computer Science Students Career Prediction)
 data/processed/      dataset bersih hasil praproses
+data/kurikulum/      kurikulum acuan S1 SI, rantai prasyarat, CPL, peta karir ke mata kuliah
 src/c45.py           implementasi C4.5 (gain ratio, split numerik & kategorikal, ekstraksi aturan)
 src/experiment.py    praproses + eksperimen perbandingan fitur + pelatihan model final
 src/figures.py       pembuatan grafik hasil
+src/engine.py        Curriculum Prerequisite Network + engine trajektori + integrasi C4.5
+src/gambar_graf.py   gambar graf prasyarat
+tests/               skenario uji dan uji acak kepatuhan prasyarat
 models/              model C4.5 (JSON) dan aturan IF-THEN
 docs/                hasil eksperimen, metrik per kelas, confusion matrix, log praproses
 docs/figures/        grafik untuk laporan
@@ -27,6 +31,8 @@ app/                 aplikasi DSS (tahap berikutnya)
 pip install -r requirements.txt
 python src/experiment.py
 python src/figures.py
+python src/gambar_graf.py
+python tests/uji_kepatuhan.py
 ```
 
 ## Ringkasan tahap 1
@@ -46,11 +52,24 @@ python src/figures.py
 
 Model final memiliki kedalaman 2 dan 14 aturan IF-THEN (lihat `models/aturan_if_then.json`).
 
+## Ringkasan tahap 2
+
+- Kurikulum acuan: 66 mata kuliah (45 wajib, 21 pilihan dalam 3 peminatan: SIA, PSI, DTA).
+- Curriculum Prerequisite Network: graf berarah asiklik dengan 33 relasi prasyarat
+  (10 dari dokumen kurikulum, 23 asumsi berbasis materi), rantai terpanjang 5 tingkat.
+- Peta 12 karir ke peminatan, CPL (rujukan IS2020), dan prioritas mata kuliah pilihan.
+- Engine: enumerasi kombinasi mata kuliah pilihan semester 5-7 dalam satu peminatan,
+  validasi prasyarat berantai, pemilihan berdasarkan prioritas karir, dan penjelasan alasan.
+- Pengujian: 14/14 skenario terencana sesuai harapan; uji acak 1.000 profil mahasiswa
+  menghasilkan 0 pelanggaran prasyarat (kepatuhan 100%).
+- Daftar asumsi untuk divalidasi: `docs/asumsi_tahap2.md`.
+
 ## Keterbatasan
 
 Dataset bersifat sekunder dan fiktif, berukuran kecil, berlatar Computer Science, dan belum memuat
 peran khas Sistem Informasi (misalnya Business Analyst, System Analyst). Penelitian ini diposisikan
-sebagai *proof of concept*.
+sebagai *proof of concept*. Prasyarat mata kuliah pilihan tidak tercantum di dokumen kurikulum sehingga
+disusun berdasarkan keterkaitan materi dan perlu divalidasi.
 
 ## Sumber data dan lisensi
 

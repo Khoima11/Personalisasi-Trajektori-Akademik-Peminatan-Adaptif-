@@ -172,6 +172,15 @@ class C45:
             return 1
         return sum(self.n_leaves(c) for c in node["children"].values())
 
+    @classmethod
+    def from_json(cls, path):
+        with open(path, encoding="utf-8") as f:
+            d = json.load(f)
+        m = cls(d["numeric_attrs"], d["categorical_attrs"])
+        m.classes_ = d["classes"]
+        m.tree = d["tree"]
+        return m
+
     def to_json(self, path):
         with open(path, "w", encoding="utf-8") as f:
             json.dump({"numeric_attrs": self.numeric_attrs,

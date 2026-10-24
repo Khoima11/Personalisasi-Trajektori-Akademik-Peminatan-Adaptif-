@@ -1,0 +1,278 @@
+{
+  "input": {
+    "profil": {
+      "minat": "Data Science",
+      "ipk": 3.6,
+      "python": "Strong",
+      "sql": "Average",
+      "java": "Weak"
+    },
+    "semester_sekarang": 5,
+    "transkrip": "MK wajib semester 1-4"
+  },
+  "output": {
+    "karir": "Data Analyst",
+    "karir_id": "Analis Data",
+    "peminatan": "DTA",
+    "peminatan_ideal": "DTA",
+    "dukungan_kurikulum": "kuat",
+    "catatan_karir": "",
+    "cpl": [
+      "CPL04",
+      "CPL10",
+      "CPL03"
+    ],
+    "kompetensi": [
+      "Pengolahan dan analisis data",
+      "Visualisasi dan pelaporan",
+      "Analisis untuk pengambilan keputusan"
+    ],
+    "kesiapan_akademik": {
+      "indeks": 3.88,
+      "dasar": {
+        "SIN2174": {
+          "nama": "Basis Data",
+          "nilai": "A-"
+        },
+        "SIN3054": {
+          "nama": "Statistika Terapan",
+          "nilai": "A"
+        }
+      }
+    },
+    "trajektori": [
+      {
+        "semester": 5,
+        "mata_kuliah": [
+          {
+            "kode": "DTA5594",
+            "nama": "Pemodelan Data",
+            "sks": 4,
+            "jenis": "pilihan",
+            "status_prasyarat": "LAYAK",
+            "detail_prasyarat": [
+              {
+                "prasyarat": "SIN3362",
+                "nama": "Basis Data Lanjut",
+                "status": "lulus",
+                "keterangan": "Basis Data Lanjut lulus dengan nilai B (minimal D)"
+              }
+            ],
+            "alasan": "Mata kuliah pilihan peminatan DTA"
+          },
+          {
+            "kode": "SIN5224",
+            "nama": "Manajemen Proyek Teknologi Informasi",
+            "sks": 4,
+            "jenis": "wajib",
+            "status_prasyarat": "LAYAK",
+            "detail_prasyarat": []
+          },
+          {
+            "kode": "SIN5292",
+            "nama": "Metodologi Penelitian dan Penulisan Ilmiah",
+            "sks": 2,
+            "jenis": "wajib",
+            "status_prasyarat": "LAYAK",
+            "detail_prasyarat": []
+          },
+          {
+            "kode": "SIN5372",
+            "nama": "Enterprise Architecture",
+            "sks": 2,
+            "jenis": "wajib",
+            "status_prasyarat": "LAYAK",
+            "detail_prasyarat": []
+          },
+          {
+            "kode": "SIN5382",
+            "nama": "Data Warehouse & Mining",
+            "sks": 2,
+            "jenis": "wajib",
+            "status_prasyarat": "LAYAK",
+            "detail_prasyarat": []
+          },
+          {
+            "kode": "UIN5112",
+            "nama": "Islam dan Peradaban Melayu",
+            "sks": 2,
+            "jenis": "wajib",
+            "status_prasyarat": "LAYAK",
+            "detail_prasyarat": []
+          },
+          {
+            "kode": "UIN5134",
+            "nama": "KKN",
+            "sks": 4,
+            "jenis": "wajib",
+            "status_prasyarat": "LAYAK",
+            "detail_prasyarat": []
+          }
+        ],
+        "total_sks": 20
+      },
+      {
+        "semester": 6,
+        "mata_kuliah": [
+          {
+            "kode": "DTA6614",
+            "nama": "Bisnis Intelijen",
+            "sks": 4,
+            "jenis": "pilihan",
+            "status_prasyarat": "BERSYARAT",
+            "detail_prasyarat": [
+              {
+                "prasyarat": "SIN5382",
+                "nama": "Data Warehouse & Mining",
+                "status": "direncanakan",
+                "keterangan": "Data Warehouse & Mining dijadwalkan di semester 5, harus lulus minimal D"
+              }
+            ],
+            "alasan": "Prioritas ke-1 untuk karir Data Analyst"
+          },
+          {
+            "kode": "DTA6624",
+            "nama": "Machine Learning",
+            "sks": 4,
+            "jenis": "pilihan",
+            "status_prasyarat": "LAYAK",
+            "detail_prasyarat": [
+              {
+                "prasyarat": "SIN3054",
+                "nama": "Statistika Terapan",
+                "status": "lulus",
+                "keterangan": "Statistika Terapan lulus dengan nilai A (minimal D)"
+              },
+              {
+                "prasyarat": "SIN3032",
+                "nama": "Aljabar Linier",
+                "status": "lulus",
+                "keterangan": "Aljabar Linier lulus dengan nilai C (minimal D)"
+              }
+            ],
+            "alasan": "Prioritas ke-2 untuk karir Data Analyst"
+          },
+          {
+            "kode": "SIN6142",
+            "nama": "Infrastruktur Teknologi Informasi",
+            "sks": 2,
+            "jenis": "wajib",
+            "status_prasyarat": "LAYAK",
+            "detail_prasyarat": []
+          },
+          {
+            "kode": "SIN6302",
+            "nama": "Technopreneurship",
+            "sks": 2,
+            "jenis": "wajib",
+            "status_prasyarat": "LAYAK",
+            "detail_prasyarat": []
+          },
+          {
+            "kode": "SIN6322",
+            "nama": "Kuliah Kerja Lapangan",
+            "sks": 2,
+            "jenis": "wajib",
+            "status_prasyarat": "LAYAK",
+            "detail_prasyarat": []
+          },
+          {
+            "kode": "SIN6392",
+            "nama": "E-Bisnis Syariah",
+            "sks": 2,
+            "jenis": "wajib",
+            "status_prasyarat": "LAYAK",
+            "detail_prasyarat": []
+          },
+          {
+            "kode": "SIN6404",
+            "nama": "Tata Kelola Teknologi Informasi",
+            "sks": 4,
+            "jenis": "wajib",
+            "status_prasyarat": "BERSYARAT",
+            "detail_prasyarat": [
+              {
+                "prasyarat": "SIN5372",
+                "nama": "Enterprise Architecture",
+                "status": "direncanakan",
+                "keterangan": "Enterprise Architecture dijadwalkan di semester 5, harus lulus minimal D"
+              }
+            ]
+          }
+        ],
+        "total_sks": 20
+      },
+      {
+        "semester": 7,
+        "mata_kuliah": [
+          {
+            "kode": "DTA7634",
+            "nama": "Sistem Pengambil Keputusan",
+            "sks": 4,
+            "jenis": "pilihan",
+            "status_prasyarat": "LAYAK",
+            "detail_prasyarat": [
+              {
+                "prasyarat": "SIN3054",
+                "nama": "Statistika Terapan",
+                "status": "lulus",
+                "keterangan": "Statistika Terapan lulus dengan nilai A (minimal D)"
+              }
+            ],
+            "alasan": "Prioritas ke-2 untuk karir Data Analyst"
+          },
+          {
+            "kode": "DTA7644",
+            "nama": "Analisis dan Visualisasi Data",
+            "sks": 4,
+            "jenis": "pilihan",
+            "status_prasyarat": "LAYAK",
+            "detail_prasyarat": [
+              {
+                "prasyarat": "SIN3054",
+                "nama": "Statistika Terapan",
+                "status": "lulus",
+                "keterangan": "Statistika Terapan lulus dengan nilai A (minimal D)"
+              }
+            ],
+            "alasan": "Prioritas ke-1 untuk karir Data Analyst"
+          },
+          {
+            "kode": "MK45",
+            "nama": "Capstone Projek",
+            "sks": 4,
+            "jenis": "wajib",
+            "status_prasyarat": "LAYAK",
+            "detail_prasyarat": []
+          },
+          {
+            "kode": "SIN7272",
+            "nama": "Kerja Praktik",
+            "sks": 2,
+            "jenis": "wajib",
+            "status_prasyarat": "LAYAK",
+            "detail_prasyarat": []
+          },
+          {
+            "kode": "SIN7342",
+            "nama": "Seminar Proposal",
+            "sks": 2,
+            "jenis": "wajib",
+            "status_prasyarat": "BERSYARAT",
+            "detail_prasyarat": [
+              {
+                "prasyarat": "SIN5292",
+                "nama": "Metodologi Penelitian dan Penulisan Ilmiah",
+                "status": "direncanakan",
+                "keterangan": "Metodologi Penelitian dan Penulisan Ilmiah dijadwalkan di semester 5, harus lulus minimal C"
+              }
+            ]
+          }
+        ],
+        "total_sks": 16
+      }
+    ],
+    "peringatan": [],
+    "penjelasan_prediksi": "JIKA minat = Data Science DAN ipk > 3.35 MAKA Data Analyst"
+  }
+}

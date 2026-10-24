@@ -1,0 +1,125 @@
+{
+  "_keterangan": "Disusun berdasarkan materi mata kuliah dan rujukan IS2020 pada CPL prodi. Prioritas: urutan pertama paling relevan. Wajib diperiksa peneliti.",
+  "karir": {
+    "Data Analyst": {
+      "nama_id": "Analis Data",
+      "peminatan": "DTA",
+      "cpl": ["CPL04", "CPL10", "CPL03"],
+      "kompetensi": ["Pengolahan dan analisis data", "Visualisasi dan pelaporan", "Analisis untuk pengambilan keputusan"],
+      "prioritas": {"6": ["DTA6614", "DTA6624", "DTA6604"], "7": ["DTA7644", "DTA7634", "DTA7654"]},
+      "mk_wajib_pendukung": ["SIN2174", "SIN3054", "SIN5382"],
+      "dukungan": "kuat",
+      "catatan": ""
+    },
+    "Data Scientist": {
+      "nama_id": "Ilmuwan Data",
+      "peminatan": "DTA",
+      "cpl": ["CPL04", "CPL10", "CPL11"],
+      "kompetensi": ["Pemodelan statistik dan machine learning", "Pengolahan data skala besar", "Analisis dan visualisasi data"],
+      "prioritas": {"6": ["DTA6624", "DTA6614", "DTA6604"], "7": ["DTA7644", "DTA7654", "DTA7634"]},
+      "mk_wajib_pendukung": ["SIN3054", "SIN3032", "SIN5382"],
+      "dukungan": "kuat",
+      "catatan": ""
+    },
+    "Machine Learning Engineer": {
+      "nama_id": "Insinyur Machine Learning",
+      "peminatan": "DTA",
+      "cpl": ["CPL04", "CPL05", "CPL10"],
+      "kompetensi": ["Membangun model machine learning", "Pengelolaan pipeline data", "Pemrograman"],
+      "prioritas": {"6": ["DTA6624", "DTA6604", "DTA6614"], "7": ["DTA7654", "DTA7644", "DTA7634"]},
+      "mk_wajib_pendukung": ["SIN2074", "SIN3054", "SIN3032"],
+      "dukungan": "kuat",
+      "catatan": ""
+    },
+    "AI Researcher": {
+      "nama_id": "Peneliti Kecerdasan Buatan",
+      "peminatan": "DTA",
+      "cpl": ["CPL04", "CPL10", "CPL11"],
+      "kompetensi": ["Kecerdasan buatan dan machine learning", "Metodologi penelitian", "Matematika dan statistika"],
+      "prioritas": {"6": ["DTA6604", "DTA6624", "DTA6614"], "7": ["DTA7654", "DTA7634", "DTA7644"]},
+      "mk_wajib_pendukung": ["SIN2074", "SIN3032", "SIN5292"],
+      "dukungan": "sedang",
+      "catatan": "Riset AI membutuhkan matematika lanjut yang tidak sepenuhnya tersedia di kurikulum SI; disarankan pengayaan mandiri."
+    },
+    "NLP Research Scientist": {
+      "nama_id": "Peneliti Pemrosesan Bahasa Alami",
+      "peminatan": "DTA",
+      "cpl": ["CPL04", "CPL10", "CPL11"],
+      "kompetensi": ["Machine learning", "Pengolahan data teks", "Metodologi penelitian"],
+      "prioritas": {"6": ["DTA6624", "DTA6604", "DTA6614"], "7": ["DTA7654", "DTA7644", "DTA7634"]},
+      "mk_wajib_pendukung": ["SIN2074", "SIN3054", "SIN5292"],
+      "dukungan": "lemah",
+      "catatan": "Kurikulum SI tidak memiliki mata kuliah pemrosesan bahasa alami; jalur ini hanya memberi dasar machine learning dan data. Disarankan kursus atau sertifikasi NLP."
+    },
+    "Database Administrator": {
+      "nama_id": "Administrator Basis Data",
+      "peminatan": "DTA",
+      "cpl": ["CPL04", "CPL06"],
+      "kompetensi": ["Perancangan dan pemodelan basis data", "Pengelolaan data skala besar", "Keamanan dan infrastruktur data"],
+      "prioritas": {"6": ["DTA6614", "DTA6604", "DTA6624"], "7": ["DTA7654", "DTA7644", "DTA7634"]},
+      "mk_wajib_pendukung": ["SIN2174", "SIN3362", "SIN5382"],
+      "dukungan": "kuat",
+      "catatan": ""
+    },
+    "Web Developer": {
+      "nama_id": "Pengembang Web",
+      "peminatan": "PSI",
+      "cpl": ["CPL05", "CPL04"],
+      "kompetensi": ["Pemrograman web", "Pengujian perangkat lunak", "Integrasi aplikasi"],
+      "prioritas": {"6": ["PSI6534", "PSI6544", "PSI6524"], "7": ["PSI7584", "PSI7564", "PSI7574"]},
+      "mk_wajib_pendukung": ["SIN3094", "SIN2174", "SIN4132"],
+      "dukungan": "kuat",
+      "catatan": ""
+    },
+    "Mobile App Developer": {
+      "nama_id": "Pengembang Aplikasi Mobile",
+      "peminatan": "PSI",
+      "cpl": ["CPL05", "CPL04"],
+      "kompetensi": ["Pemrograman mobile", "Desain antarmuka", "Pengujian aplikasi"],
+      "prioritas": {"6": ["PSI6524", "PSI6534", "PSI6544"], "7": ["PSI7584", "PSI7564", "PSI7574"]},
+      "mk_wajib_pendukung": ["SIN3084", "SIN4132", "SIN4124"],
+      "dukungan": "kuat",
+      "catatan": ""
+    },
+    "Software Engineer": {
+      "nama_id": "Rekayasawan Perangkat Lunak",
+      "peminatan": "PSI",
+      "cpl": ["CPL05", "CPL09"],
+      "kompetensi": ["Rekayasa perangkat lunak", "Pengujian dan implementasi", "Integrasi sistem"],
+      "prioritas": {"6": ["PSI6534", "PSI6524", "PSI6544"], "7": ["PSI7584", "PSI7574", "PSI7564"]},
+      "mk_wajib_pendukung": ["SIN3084", "SIN4124", "SIN4114"],
+      "dukungan": "kuat",
+      "catatan": ""
+    },
+    "Cloud Solutions Architect": {
+      "nama_id": "Arsitek Solusi Cloud",
+      "peminatan": "PSI",
+      "cpl": ["CPL06", "CPL05", "CPL08"],
+      "kompetensi": ["Komputasi awan", "Infrastruktur dan jaringan", "Integrasi sistem enterprise"],
+      "prioritas": {"6": ["PSI6544", "PSI6534", "PSI6524"], "7": ["PSI7584", "PSI7564", "PSI7574"]},
+      "mk_wajib_pendukung": ["SIN3154", "SIN6142", "SIN5372"],
+      "dukungan": "sedang",
+      "catatan": "Hanya satu mata kuliah pilihan yang khusus membahas cloud; disarankan sertifikasi penyedia cloud."
+    },
+    "Information Security Analyst": {
+      "nama_id": "Analis Keamanan Informasi",
+      "peminatan": "SIA",
+      "cpl": ["CPL06", "CPL07", "CPL08"],
+      "kompetensi": ["Manajemen risiko dan keamanan TI", "Audit sistem informasi", "Tata kelola TI"],
+      "prioritas": {"6": ["SIA6454", "SIA6444", "SIA6464"], "7": ["SIA7474", "SIA7494", "SIA7504"]},
+      "mk_wajib_pendukung": ["SIN4192", "SIN3154", "SIN6404"],
+      "dukungan": "sedang",
+      "catatan": "Aspek manajerial keamanan (risiko, audit, tata kelola) didukung kuat; aspek teknis seperti pengujian penetrasi tidak tersedia di kurikulum SI."
+    },
+    "Graphics Programmer": {
+      "nama_id": "Pemrogram Grafis",
+      "peminatan": "PSI",
+      "cpl": ["CPL05"],
+      "kompetensi": ["Pemrograman", "Grafika dan multimedia", "Visualisasi"],
+      "prioritas": {"6": ["PSI6524", "PSI6534", "PSI6544"], "7": ["PSI7564", "PSI7584", "PSI7574"]},
+      "mk_wajib_pendukung": ["SIN3084", "SIN4412", "SIN3032"],
+      "dukungan": "lemah",
+      "catatan": "Kurikulum SI tidak memiliki mata kuliah grafika komputer; Teknik Multimedia menjadi satu-satunya pendukung langsung. Ini menunjukkan potensi education-job mismatch untuk karir ini."
+    }
+  }
+}

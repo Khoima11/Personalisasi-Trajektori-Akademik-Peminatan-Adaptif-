@@ -1,0 +1,34 @@
+kode,prasyarat,nilai_minimal,sumber,alasan
+SIN2022,SIN1012,D,dokumen,
+SIN2074,SIN1064,D,dokumen,
+SIN3054,SIN2042,D,dokumen,Dokumen menulis SIN2044; dianggap salah ketik dari SIN2042 (Statistik dan Probabilitas)
+SIN3084,SIN2074,D,dokumen,
+SIN3094,SIN2074,D,dokumen,
+SIN3362,SIN2174,D,dokumen,
+SIN4424,SIN1064,D,dokumen,
+SIN6404,SIN5372,D,dokumen,Nilai minimal kosong di dokumen; diasumsikan D mengikuti aturan mayoritas
+SIN7342,SIN5292,C,dokumen,
+UIN8146,SIN7342,C,dokumen,
+SIA5434,SIN2203,D,asumsi_materi,Perencanaan strategis SI membutuhkan pemahaman peran SI dalam organisasi
+SIA6444,SIA5434,D,asumsi_materi,Manajemen layanan TI diturunkan dari rencana strategis SI
+SIA6454,SIN4192,D,asumsi_materi,Manajemen risiko keamanan dibangun di atas konsep keamanan SI
+SIA6464,SIN3162,D,asumsi_materi,ERP mengintegrasikan proses bisnis organisasi
+SIA7474,SIA6454,D,asumsi_materi,Audit SI/TI menilai pengendalian risiko dan keamanan
+SIA7474,SIN6404,D,asumsi_materi,Audit SI/TI berpedoman pada kerangka tata kelola TI
+SIA7494,SIN2203,D,asumsi_materi,Sistem manajemen pengetahuan berbasis konsep SI organisasi
+SIA7504,SIA6464,D,asumsi_materi,SCM berjalan di atas sistem ERP
+PSI5514,SIN3094,D,asumsi_materi,Lanjutan langsung dari Perancangan dan Pemrograman Web
+PSI6524,SIN3084,D,asumsi_materi,Pengembangan aplikasi mobile berbasis paradigma berorientasi objek
+PSI6534,SIN4124,D,asumsi_materi,Pengujian perangkat lunak bagian dari siklus rekayasa perangkat lunak
+PSI6544,SIN3154,D,asumsi_materi,Komputasi awan membutuhkan dasar jaringan dan komunikasi data
+PSI7564,SIN3362,D,asumsi_materi,SIG mengelola basis data spasial
+PSI7574,SIN4424,D,asumsi_materi,Teknologi keuangan syariah melanjutkan SI akuntansi keuangan syariah
+PSI7584,PSI5514,D,asumsi_materi,Integrasi aplikasi enterprise memakai web service dan API dari pemrograman web lanjutan
+DTA5594,SIN3362,D,asumsi_materi,Pemodelan data melanjutkan basis data lanjut
+DTA6604,SIN2074,D,asumsi_materi,AI membutuhkan dasar algoritma dan struktur data
+DTA6614,SIN5382,D,asumsi_materi,Bisnis intelijen dibangun di atas data warehouse
+DTA6624,SIN3054,D,asumsi_materi,Machine learning membutuhkan dasar statistika
+DTA6624,SIN3032,D,asumsi_materi,Machine learning membutuhkan dasar aljabar linier
+DTA7634,SIN3054,D,asumsi_materi,Metode pengambilan keputusan memakai dasar statistika
+DTA7644,SIN3054,D,asumsi_materi,Analisis data membutuhkan dasar statistika terapan
+DTA7654,DTA5594,D,asumsi_materi,Pengelolaan big data melanjutkan pemodelan data

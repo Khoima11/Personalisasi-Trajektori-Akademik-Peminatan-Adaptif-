@@ -1,0 +1,51 @@
+kode,nama,sks,semester,jenis,ditawarkan,prasyarat,kompetensi
+SI101,Algoritma dan Pemrograman,4,1,wajib,ganjil,,pemrograman
+SI102,Pengantar Sistem Informasi,3,1,wajib,ganjil,,sistem informasi
+SI103,Matematika Diskrit,3,1,wajib,ganjil,,matematika
+SI104,Pengantar Teknologi Informasi,2,1,wajib,ganjil,,teknologi informasi
+SI201,Struktur Data,3,2,wajib,genap,SI101,pemrograman
+SI202,Basis Data,3,2,wajib,genap,,basis data
+SI203,Statistika,3,2,wajib,genap,,statistika;analisis data
+SI204,Sistem Operasi,3,2,wajib,genap,SI104,infrastruktur
+SI205,Interaksi Manusia dan Komputer,3,2,wajib,genap,,desain antarmuka
+SI301,Pemrograman Berorientasi Objek,3,3,wajib,ganjil,SI201,pemrograman
+SI302,Pemrograman Web,3,3,wajib,ganjil,SI101,pengembangan web
+SI303,Basis Data Lanjut,3,3,wajib,ganjil,SI202,basis data
+SI304,Analisis dan Perancangan Sistem Informasi,3,3,wajib,ganjil,SI102,analisis sistem
+SI305,Jaringan Komputer,3,3,wajib,ganjil,SI204,jaringan;infrastruktur
+SI306,Aljabar Linear,3,3,wajib,ganjil,SI103,matematika
+SI401,Rekayasa Perangkat Lunak,3,4,wajib,genap,SI301;SI304,rekayasa perangkat lunak
+SI402,Kecerdasan Buatan,3,4,wajib,genap,SI201;SI203,kecerdasan buatan
+SI403,Keamanan Sistem Informasi,3,4,wajib,genap,SI305,keamanan
+SI404,Manajemen Proyek Sistem Informasi,3,4,wajib,genap,SI304,manajemen proyek
+SI405,Pemrograman Web Lanjut,3,4,wajib,genap,SI302;SI303,pengembangan web
+PL501,Data Mining,3,5,pilihan,ganjil,SI202;SI203,analisis data;machine learning
+PL502,Visualisasi Data dan Business Intelligence,3,5,pilihan,ganjil,SI303;SI203,analisis data;business intelligence
+PL503,Sistem Pakar,3,5,pilihan,ganjil,SI402,kecerdasan buatan
+PL504,Pemrograman Mobile,3,5,pilihan,ganjil,SI301,pengembangan mobile
+PL505,Desain UI/UX,3,5,pilihan,ganjil,SI205,desain antarmuka
+PL506,Framework Pengembangan Web,3,5,pilihan,ganjil,SI405,pengembangan web
+PL507,Administrasi Basis Data,3,5,pilihan,ganjil,SI303,basis data
+PL508,Komputasi Awan,3,5,pilihan,ganjil,SI305,cloud;infrastruktur
+PL509,Kriptografi,3,5,pilihan,ganjil,SI103;SI403,keamanan
+PL510,Grafika Komputer,3,5,pilihan,ganjil,SI306;SI301,grafika
+PL601,Machine Learning,3,6,pilihan,genap,PL501;SI402,machine learning
+PL602,Data Warehouse,3,6,pilihan,genap,SI303,basis data;business intelligence
+PL603,Pemrograman Mobile Lanjut,3,6,pilihan,genap,PL504,pengembangan mobile
+PL604,Pengujian Perangkat Lunak,3,6,pilihan,genap,SI401,rekayasa perangkat lunak
+PL605,Pengembangan Back-End dan API,3,6,pilihan,genap,PL506,pengembangan web
+PL606,Basis Data Terdistribusi,3,6,pilihan,genap,PL507,basis data
+PL607,Virtualisasi dan Kontainerisasi,3,6,pilihan,genap,PL508,cloud;devops
+PL608,Keamanan Jaringan,3,6,pilihan,genap,SI403;SI305,keamanan;jaringan
+PL609,Multimedia dan Animasi 3D,3,6,pilihan,genap,PL510,grafika
+PL610,Audit Sistem Informasi,3,6,pilihan,genap,SI403;SI304,keamanan;tata kelola
+PL701,Deep Learning,3,7,pilihan,ganjil,PL601,machine learning;kecerdasan buatan
+PL702,Natural Language Processing,3,7,pilihan,ganjil,PL601,kecerdasan buatan;pemrosesan bahasa
+PL703,Big Data Analytics,3,7,pilihan,ganjil,PL501;PL602,analisis data;big data
+PL704,Pengembangan Aplikasi Lintas Platform,3,7,pilihan,ganjil,PL603,pengembangan mobile
+PL705,Arsitektur Perangkat Lunak,3,7,pilihan,ganjil,SI401;PL604,rekayasa perangkat lunak
+PL706,Optimasi dan Tuning Basis Data,3,7,pilihan,ganjil,PL606,basis data
+PL707,Arsitektur Cloud dan DevOps,3,7,pilihan,ganjil,PL607,cloud;devops
+PL708,Ethical Hacking dan Forensik Digital,3,7,pilihan,ganjil,PL608,keamanan
+PL709,Pengembangan Game,3,7,pilihan,ganjil,PL609,grafika;pengembangan game
+PL710,Computer Vision,3,7,pilihan,ganjil,PL601;SI306,kecerdasan buatan;pengolahan citra
