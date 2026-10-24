@@ -1,11 +1,13 @@
-# IDSS Rekomendasi Karir dan Mata Kuliah Pilihan Mahasiswa S1 Sistem Informasi
+# NAVIKA: Navigasi Karir dan Akademik
+
+IDSS rekomendasi karir dan mata kuliah pilihan mahasiswa S1 Sistem Informasi.
 
 Intelligent Decision Support System (IDSS) yang mengintegrasikan klasifikasi peran karir berbasis
 **Algoritma C4.5** dengan **Curriculum Prerequisite Network** untuk menghasilkan rekomendasi mata kuliah
 pilihan semester 5, 6, dan 7 yang tervalidasi rantai prasyaratnya.
 
-> Status: **Tahap 2 selesai** (kurikulum acuan, Curriculum Prerequisite Network, dan engine trajektori).
-> Tahap berikutnya: aplikasi DSS dan evaluasi pengguna.
+> Status: **Tahap 3 selesai** (aplikasi NAVIKA berbasis Streamlit). Tahap berikutnya: evaluasi
+> (black-box testing, SUS, validasi pakar).
 
 ## Struktur repositori
 
@@ -22,10 +24,21 @@ tests/               skenario uji dan uji acak kepatuhan prasyarat
 models/              model C4.5 (JSON) dan aturan IF-THEN
 docs/                hasil eksperimen, metrik per kelas, confusion matrix, log praproses
 docs/figures/        grafik untuk laporan
-app/                 aplikasi DSS (tahap berikutnya)
+app/streamlit_app.py tampilan aplikasi NAVIKA (Streamlit)
+app/logic.py         logika aplikasi: input ringkas, integrasi C4.5 + engine, penjelasan aturan
+.streamlit/          tema aplikasi
 ```
 
-## Cara menjalankan
+## Menjalankan aplikasi NAVIKA
+
+```bash
+pip install -r requirements.txt
+streamlit run app/streamlit_app.py
+```
+
+Panduan lengkap (Windows dan deploy ke Streamlit Community Cloud): `docs/panduan_menjalankan.md`.
+
+## Menjalankan eksperimen dan pengujian
 
 ```bash
 pip install -r requirements.txt
@@ -63,6 +76,14 @@ Model final memiliki kedalaman 2 dan 14 aturan IF-THEN (lihat `models/aturan_if_
 - Pengujian: 14/14 skenario terencana sesuai harapan; uji acak 1.000 profil mahasiswa
   menghasilkan 0 pelanggaran prasyarat (kepatuhan 100%).
 - Daftar asumsi untuk divalidasi: `docs/asumsi_tahap2.md`.
+
+## Ringkasan tahap 3
+
+Aplikasi NAVIKA (Streamlit) dengan alur: input profil (minat, IPK, kemampuan Python/SQL/Java) dan nilai
+mata kuliah ringkas, prediksi karir C4.5 beserta aturan keputusan, peta jalur studi semester 5-7 dengan status
+prasyarat, peringatan, rincian prasyarat, unduhan rencana studi (CSV), penelusuran rantai prasyarat, dan
+pembaruan rekomendasi otomatis saat data diubah (simulasi adaptif). Mata kuliah wajib yang tidak ditanyakan
+diasumsikan lulus.
 
 ## Keterbatasan
 

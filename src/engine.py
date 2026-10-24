@@ -33,7 +33,12 @@ SLOT_PILIHAN = {5: 1, 6: 2, 7: 2}
 BOBOT_PRIORITAS = [3, 2, 1]  # peringkat 1, 2, 3 pada daftar prioritas karir
 
 
+NILAI_DIASUMSIKAN_LULUS = "L"  # dipakai aplikasi untuk MK wajib yang tidak ditanyakan (input ringkas)
+
+
 def lulus(nilai, minimal):
+    if nilai == NILAI_DIASUMSIKAN_LULUS:
+        return True
     return nilai in SKALA_NILAI and SKALA_NILAI[nilai] >= SKALA_NILAI[minimal]
 
 
@@ -106,8 +111,9 @@ class TrajectoryEngine:
             pk, minimal = p["prasyarat"], p["nilai_minimal"]
             nama = self.net.mk[pk]["nama"]
             if pk in transkrip and lulus(transkrip[pk], minimal):
+                nilai_txt = "diasumsikan lulus" if transkrip[pk] == NILAI_DIASUMSIKAN_LULUS else f"nilai {transkrip[pk]}"
                 hasil.append({"prasyarat": pk, "nama": nama, "status": "lulus",
-                              "keterangan": f"{nama} lulus dengan nilai {transkrip[pk]} (minimal {minimal})"})
+                              "keterangan": f"{nama} lulus ({nilai_txt}, minimal {minimal})"})
             elif pk in rencana_sem and rencana_sem[pk] < semester:
                 hasil.append({"prasyarat": pk, "nama": nama, "status": "direncanakan",
                               "keterangan": f"{nama} dijadwalkan di semester {rencana_sem[pk]}, harus lulus minimal {minimal}"})
@@ -223,8 +229,10 @@ class TrajectoryEngine:
         trajektori = []
         for s in semesters:
             daftar = []
+            urutan = prioritas.get(str(s), [])
             for k in sorted([k for k, ss in rencana_sem.items() if ss == s],
-                            key=lambda x: (self.net.mk[x]["jenis"] != "pilihan", x)):
+                            key=lambda x: (self.net.mk[x]["jenis"] != "pilihan",
+                                           urutan.index(x) if x in urutan else 99, x)):
                 m = self.net.mk[k]
                 status, detail = self._cek(k, s, transkrip, rencana_valid)
                 item = {"kode": k, "nama": m["nama"], "sks": m["sks"], "jenis": m["jenis"],

@@ -137,6 +137,20 @@ class C45:
                     node = node["children"][">"]
         return (node["label"], path) if return_path else node["label"]
 
+    def predict_leaf(self, row):
+        """Mengembalikan simpul daun beserta distribusi kelas di daun tersebut."""
+        node = self.tree
+        while not node["leaf"]:
+            a = node["attr"]
+            if node["type"] == "cat":
+                key = str(row[a])
+                if key not in node["children"]:
+                    return {"leaf": True, "label": node["majority"], "n": node["n"], "dist": {node["majority"]: node["n"]}}
+                node = node["children"][key]
+            else:
+                node = node["children"]["<=" if row[a] <= node["thr"] else ">"]
+        return node
+
     def predict(self, rows):
         return [self.predict_one(r) for r in rows]
 
