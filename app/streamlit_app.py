@@ -10,6 +10,7 @@ import os
 import sys
 
 import streamlit as st
+import streamlit.components.v1 as components
 
 sys.path.insert(0, os.path.dirname(__file__))
 from logic import (KEMAMPUAN, MINAT, PEMINATAN, PILIHAN_NILAI, STATUS_LABEL,  # noqa: E402
@@ -151,6 +152,16 @@ div[data-baseweb="select"] > div, div[data-baseweb="input"], [data-testid="stNum
   .nb-titik { top:0.35rem; left:-2.4rem; }
   .nb-langkah { grid-template-columns:1fr; }
 }
+/* ---------- input ramah layar sentuh ---------- */
+[data-testid="stSidebar"] [data-testid="stElementContainer"], [data-testid="stSidebar"] .element-container { margin-bottom:0.35rem; }
+[data-testid="stSidebar"] [role="radiogroup"] { gap:0.45rem; flex-wrap:wrap; }
+[data-testid="stSidebar"] [role="radiogroup"] label { border:2px solid var(--hitam); background:var(--putih);
+  padding:0.35rem 0.7rem; margin:0 !important; min-height:40px; align-items:center; }
+[data-testid="stSidebar"] [role="radiogroup"] label:has(input:checked) { background:var(--lime); }
+@media (pointer: coarse) {
+  [data-testid="stNumberInput"] button { display:none !important; }
+  [data-testid="stSidebar"] [data-testid="stExpander"] { margin-bottom:0.6rem; }
+}
 @media (prefers-reduced-motion: reduce) { .stButton > button { transition:none; } }
 </style>
 """
@@ -205,11 +216,11 @@ with st.sidebar:
                          format_func=lambda k: MINAT[k], key="minat")
     ipk = st.number_input("IPK saat ini", min_value=0.0, max_value=4.0, value=3.50, step=0.01,
                           format="%.2f", key="ipk")
-    python_lv = st.select_slider("Kemampuan Python", options=[0, 1, 2], value=1,
+    python_lv = st.radio("Kemampuan Python", options=[0, 1, 2], index=1, horizontal=True,
                                  format_func=lambda v: KEMAMPUAN[v], key="python")
-    sql_lv = st.select_slider("Kemampuan SQL", options=[0, 1, 2], value=1,
+    sql_lv = st.radio("Kemampuan SQL", options=[0, 1, 2], index=1, horizontal=True,
                               format_func=lambda v: KEMAMPUAN[v], key="sql")
-    java_lv = st.select_slider("Kemampuan Java", options=[0, 1, 2], value=1,
+    java_lv = st.radio("Kemampuan Java", options=[0, 1, 2], index=1, horizontal=True,
                                format_func=lambda v: KEMAMPUAN[v], key="java")
 
     st.markdown('<div class="nb-side-sub">Nilai mata kuliah</div>', unsafe_allow_html=True)
@@ -246,6 +257,7 @@ with st.sidebar:
     st.write("")
     if lebar_penuh(st.button, "Susun rekomendasi", type="primary"):
         st.session_state["aktif"] = True
+        st.session_state["tutup_panel"] = True
     if st.session_state.get("aktif"):
         st.caption("Rekomendasi diperbarui otomatis setiap kali Anda mengubah data.")
 
@@ -269,6 +281,7 @@ def kartu_kode(baris):
 # ======================================================================
 # Hero
 # ======================================================================
+st.markdown('<div id="nb-hasil"></div>', unsafe_allow_html=True)
 if hasil is None:
     kode = kartu_kode([
         '<span class="k">&gt;</span> navika = {',
@@ -448,3 +461,38 @@ with tab_tentang:
 
 st.markdown('<div class="nb-kaki">NAVIKA: sistem pendukung keputusan karir dan jalur studi mahasiswa S1 Sistem Informasi.</div>',
             unsafe_allow_html=True)
+
+# ======================================================================
+# Ponsel dan tablet: tutup panel input setelah "Susun rekomendasi"
+# ======================================================================
+SKRIP_TUTUP_PANEL = """
+<script>
+(function () {
+  const w = window.parent, d = w.document;
+  const layarSentuh = w.matchMedia("(pointer: coarse)").matches || w.innerWidth < 1100;
+  if (!layarSentuh) return;
+  function tutupPanel() {
+    const panel = d.querySelector('section[data-testid="stSidebar"]');
+    if (!panel) return false;
+    if (panel.getAttribute("aria-expanded") === "false") return true;
+    const tombol = d.querySelector('[data-testid="stSidebarCollapseButton"] button')
+      || panel.querySelector('[data-testid="stSidebarCollapseButton"]')
+      || panel.querySelector('button[kind="headerNoPadding"]')
+      || panel.querySelector('[data-testid="baseButton-headerNoPadding"]');
+    if (tombol) { tombol.click(); return true; }
+    return false;
+  }
+  let coba = 0;
+  const jeda = setInterval(function () {
+    if (tutupPanel() || ++coba > 20) {
+      clearInterval(jeda);
+      const hasil = d.getElementById("nb-hasil");
+      if (hasil) hasil.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, 150);
+})();
+</script>
+"""
+if st.session_state.pop("tutup_panel", False):
+    components.html(SKRIP_TUTUP_PANEL, height=0)
+
